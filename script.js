@@ -365,6 +365,7 @@ window.onload = function() {
             ctx.textAlign="left";
 
             if (part.IsBold) ctx.font = 'bold ' + ctx.font;
+            if (part.IsGreen) ctx.strokeStyle = '#00FF00';
             totalLineWidth += ctx.measureText(part.Text).width;
         }
         return totalLineWidth;
@@ -387,12 +388,12 @@ window.onload = function() {
                 continue;
             }
 
-            ctx.fillStyle = '#D3C6A9';
+            if (part.IsGreen) ctx.fillstyle = '#00FF00';
+            else ctx.fillStyle = '#D3C6A9';
             ctx.font = fontSize + 'px Rubik';
             ctx.textAlign="left";
 
             if (part.IsBold) ctx.font = 'bold ' + ctx.font;
-            if (part.IsGreen) ctx.fillstyle = '#00FF00';
             ctx.fillText(part.Text, xCurrent, yText);
             xCurrent += ctx.measureText(part.Text).width;
 
