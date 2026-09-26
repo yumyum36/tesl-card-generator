@@ -27,7 +27,7 @@ window.onload = function() {
         power: '3',
         rarity: 'epic',
         type: 'Player',
-        text: '[Summon]: Keep hope until\nall issues with the\nnew client are resolved.\n(a) (e) (i) (n) (s) (w)',
+        text: 'discord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w)',
         title: 'Forgotten Hero'
     };
 
