@@ -27,7 +27,7 @@ window.onload = function() {
         power: '3',
         rarity: 'epic',
         type: 'Player',
-        text: '[Summon]: discord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w)',
+        text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w)',
         title: 'Forgotten Hero'
     };
 
