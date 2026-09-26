@@ -324,7 +324,7 @@ window.onload = function() {
     function generateTextParts(line) {
         let parts = [];
 
-        let regex = new RegExp(/(\[[^\]]+\])|(\([aeinsw]\))|([^()\[\]]*)|([^()\<\>])|(\<[^\>]+\>)/g);
+        let regex = new RegExp(/(\[[^\]]+\])|(\<[^\>]+\>)|(\([aeinsw]\))|([^()\[\]]*)/g);
         let matches = line.match(regex);
 
         for (let i = 0; i < matches.length; i++) {
@@ -335,11 +335,11 @@ window.onload = function() {
             if (text[0] === '[') {
                 currentPart.IsBold = true;
                 currentPart.Text = text.substr(1, text.length - 2);
-            } else if (text[0] === '(') {
-                currentPart.AttributeIcon = getAttributeIcon(text[1]);
             } else if (text[0] === '<') {
                 currentPart.IsGreen = true;
                 currentPart.Text = text.substr(1, text.length - 2); //not sure what this does
+            } else if (text[0] === '(') {
+                currentPart.AttributeIcon = getAttributeIcon(text[1]);
             } else {
                 currentPart.Text = text;
             }
@@ -388,7 +388,7 @@ window.onload = function() {
                 continue;
             }
 
-            if (part.IsGreen) ctx.fillstyle = '#00FF00';
+            if (part.IsGreen) ctx.fillstyle = '#00FF00' + ctx.fillstyle; //testing!!!
             else ctx.fillStyle = '#D3C6A9';
             ctx.font = fontSize + 'px Rubik';
             ctx.textAlign="left";
