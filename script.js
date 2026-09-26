@@ -147,8 +147,10 @@ window.onload = function() {
         if (currentCard.rarity.indexOf('legendary') >= 0) {
             if (currentCard.frame.indexOf('duo_') >= 0)
                 currentCard.rarity += '_duo';
-            else if (currentCard.frame.indexOf('trio_') >= 0)
+            if (currentCard.frame.indexOf('trio_') >= 0)
                 currentCard.rarity += '_trio';
+            else if (currentCard.frame.indexOf('quad_') >= 0)
+                currentCard.rarity += '_quad';
         }
     }
 
@@ -295,9 +297,11 @@ window.onload = function() {
             'rarity_legendary.png',
             'rarity_legendary_duo.png',
             'rarity_legendary_trio.png',
+            'rarity_legendary_quad.png',
             'rarity_legendary_unique.png',
             'rarity_legendary_unique_duo.png',
             'rarity_legendary_unique_trio.png',
+            'rarity_legendary_unique_quad.png',
             'power_health_bg.png'
         ];
         let loadedImagesCount = 0;
