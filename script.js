@@ -324,7 +324,7 @@ window.onload = function() {
     function generateTextParts(line) {
         let parts = [];
 
-        let regex = new RegExp(/(\[[^\]]+\])|(\([aeinsw]\))|([^()\[\]]*)/g);
+        let regex = new RegExp(/(\[[^\]]+\])|(\([aeinsw]\))|([^()\[\]]*)|(<^()\[\]>*)/g);
         let matches = line.match(regex);
 
         for (let i = 0; i < matches.length; i++) {
@@ -337,6 +337,9 @@ window.onload = function() {
                 currentPart.Text = text.substr(1, text.length - 2);
             } else if (text[0] === '(') {
                 currentPart.AttributeIcon = getAttributeIcon(text[1]);
+            } else if (text[0] === '<') {
+                currentPart.IsGreen = true;
+                currentPart.Text = text.substr(1, text.length - 2); //not sure what this does
             } else {
                 currentPart.Text = text;
             }
@@ -389,6 +392,7 @@ window.onload = function() {
             ctx.textAlign="left";
 
             if (part.IsBold) ctx.font = 'bold ' + ctx.font;
+            if (part.IsGreen) ctx.fillstyle = '#00FF00';
             ctx.fillText(part.Text, xCurrent, yText);
             xCurrent += ctx.measureText(part.Text).width;
 
@@ -492,5 +496,6 @@ window.onload = function() {
         this.IsBold = false;
         this.AttributeIcon = null;
         this.Text = '';
+        this.IsGreen = false;
     }
 };
