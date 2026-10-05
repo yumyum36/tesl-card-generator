@@ -326,7 +326,7 @@ window.onload = function() {
     function generateTextParts(line) {
         let parts = [];
 
-        let regex = new RegExp(/(\[[^\]]+\])|(\<[^\>]+\>)|(\([aeinsw]\))|([^()\[\]]*)/g);
+        let regex = new RegExp(/(\[[^\]]+\])|(\<[^\>]+\>)|(\([aeinswl]\))|([^()\[\]]*)/g);
         let matches = line.match(regex);
 
         for (let i = 0; i < matches.length; i++) {
