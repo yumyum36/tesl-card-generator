@@ -341,7 +341,7 @@ window.onload = function() {
                 currentPart.IsGreen = true;
                 currentPart.Text = text.substr(1, text.length - 2); //not sure what this does
             } else if (text[0] === '(') {
-                currentPart.AttributeIcon = getAttributeIcon(text[1]);
+                currentPart.AttributeIcon = getAttributeIcon(text[1]); //test
             } else {
                 currentPart.Text = text;
             }
