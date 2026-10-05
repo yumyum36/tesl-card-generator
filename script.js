@@ -27,7 +27,7 @@ window.onload = function() {
         power: '3',
         rarity: 'epic',
         type: 'Player',
-        text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w)',
+        text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w) (l)',
         title: 'Forgotten Hero'
     };
 
@@ -259,6 +259,7 @@ window.onload = function() {
             'attribute_neutral.png',
             'attribute_strength.png',
             'attribute_willpower.png',
+            'attribute_luck.png',
             'frame_duo_mage.png',
             'frame_duo_warrior.png',
             'frame_mono_strength.png',
@@ -294,6 +295,7 @@ window.onload = function() {
             'frame_quad_jyggalag.png',
             'frame_quad_lorkhan.png',
             'frame_quad_padomay.png',
+            'frame_mono_luck.png',
             'rarity_legendary.png',
             'rarity_legendary_duo.png',
             'rarity_legendary_trio.png',
@@ -474,6 +476,8 @@ window.onload = function() {
                 return 'attribute_strength.png';
             case 'w':
                 return 'attribute_willpower.png';
+            case 'l':
+                return 'attribute_luck.png';
         }
         return '';
     }
