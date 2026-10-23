@@ -27,7 +27,7 @@ window.onload = function() {
         power: '3',
         rarity: 'epic',
         type: 'Player',
-        text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w) (p) (l)',
+        text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w) (p) (l) (d)',
         title: 'Forgotten Hero'
     };
 
@@ -261,6 +261,7 @@ window.onload = function() {
             'attribute_willpower.png',
             'attribute_luck.png',
             'attribute_personality.png',
+            'attribute_speed.png',
             'frame_duo_mage.png',
             'frame_duo_warrior.png',
             'frame_mono_strength.png',
@@ -298,6 +299,7 @@ window.onload = function() {
             'frame_quad_padomay.png',
             'frame_mono_luck.png',
             'frame_mono_personality.png',
+            'frame_mono_speed.png',
             'frame_duo_knight.png',
             'frame_duo_bard.png',
             'frame_duo_healer.png',
@@ -339,7 +341,7 @@ window.onload = function() {
     function generateTextParts(line) {
         let parts = [];
 
-        let regex = new RegExp(/(\[[^\]]+\])|(\<[^\>]+\>)|(\([aeinswpl]\))|([^()\[\]]*)/g);
+        let regex = new RegExp(/(\[[^\]]+\])|(\<[^\>]+\>)|(\([aeinswpld]\))|([^()\[\]]*)/g);
         let matches = line.match(regex);
 
         for (let i = 0; i < matches.length; i++) {
@@ -493,6 +495,8 @@ window.onload = function() {
                 return 'attribute_personality.png';
             case 'l':
                 return 'attribute_luck.png';
+            case 'd':
+                return 'attribute_speed.png';
         }
         return '';
     }
