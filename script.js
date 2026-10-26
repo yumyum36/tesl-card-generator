@@ -2,6 +2,7 @@
 window.onload = function() {
     let canvas = document.getElementById('MainCanvas');
     let selectCardClass = document.getElementById('CardClass');
+    let selectExtras = document.getElementById('CardExtras');
     let selectCardRarity = document.getElementById('CardRarity');
     let inpCardTitle = document.getElementById('CardTitle');
     let inpCardType = document.getElementById('CardType');
@@ -25,6 +26,7 @@ window.onload = function() {
         health: '4',
         magicka: '5',
         power: '3',
+        extras: 'none_none',
         rarity: 'epic',
         type: 'Player',
         text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w) (p) (l) (d)',
@@ -50,6 +52,12 @@ window.onload = function() {
     };
 
     selectCardRarity.onchange = function () {
+        checkRarityForDuoTrio();
+        drawCardImage();
+    };
+    
+    selectCardExtras.onchange = function () { //hopefully works
+        currentCard.extras = this.value;
         checkRarityForDuoTrio();
         drawCardImage();
     };
@@ -133,6 +141,7 @@ window.onload = function() {
     function loadValues(card) {
         selectCardClass.value = card.frame;
         selectCardRarity.value = card.rarity;
+        selectExtras.value = card.extras;
         inpCardTitle.value = card.title;
         inpCardType.value = card.type;
         inpCardMagicka.value = card.magicka;
@@ -144,14 +153,28 @@ window.onload = function() {
 
     function checkRarityForDuoTrio() {
         currentCard.rarity = selectCardRarity.value;
+        currentCard.extras = selectCardExtras.value;
         if (currentCard.rarity.indexOf('legendary') >= 0) {
-            if (currentCard.frame.indexOf('duo_') >= 0)
+            if (currentCard.frame.indexOf('duo_') >= 0) {
                 currentCard.rarity += '_duo';
-            if (currentCard.frame.indexOf('trio_') >= 0)
+                if (currentCard.extras.indexOf('extra_') >= 0)
+                    currentCard.rarity += '_trio';
+            }
+            if (currentCard.frame.indexOf('trio_') >= 0) {
                 currentCard.rarity += '_trio';
+                if (currentCard.extras.indexOf('extra_') >= 0)
+                    currentCard.rarity += '_quad';
+            }
             else if (currentCard.frame.indexOf('quad_') >= 0)
                 currentCard.rarity += '_quad';
         }
+        if currentCard.extras.indexOf('extra_') >= 0) { //might have to be its own function, will see if it breaks anything being here
+            if (currentCard.frame.indexOf('duo_') >= 0)
+                currentCard.extras += '_duo';
+            if (currentCard.frame.indexOf('trio_') >=0)
+                currentCard.extras += '_trio';
+            else if (currentCard.frame.indexOf('quad_') >= 0)
+                currentCard.extras += '_quad';
     }
 
     function drawCardImage() {
@@ -159,6 +182,7 @@ window.onload = function() {
 
         let layerArt = getImageForLayer('art');
         let layerFrame = getImageForLayer('frame');
+        let layerExtras = getImageForLayer('extras');
         let layerRarity = getImageForLayer('rarity');
         let layerSupport = getImageForLayer('support');
         let layerPH = getImageForLayer('ph');
@@ -167,6 +191,7 @@ window.onload = function() {
 
         if (layerArt) ctx.drawImage(layerArt, 60, 120, 320, 420);
         if (layerFrame) ctx.drawImage(layerFrame, 0, 0);
+        if (layerExtras) ctx.drawImage(layerExtras, 0, 0);
         if (layerRarity) ctx.drawImage(layerRarity, 0, 0);
         if (layerSupport) ctx.drawImage(layerSupport, 0, 0);
         else if (layerPH) ctx.drawImage(layerPH, 0, 0);
@@ -234,6 +259,15 @@ window.onload = function() {
             case 'frame':
                 src = 'frame_' + currentCard.frame + '.png';
                 break;
+            case 'extras':
+                if (currentCard.extras == ('neutral')){
+                    src = 'extra_' + currentCard.extras + '.png';
+                    break;
+                }
+                else {
+                    src = 'none_' + currentCard.extras + '.png';
+                    break;
+                }
             case 'rarity':
                 src = 'rarity_' + currentCard.rarity + '.png';
                 break;
@@ -319,6 +353,10 @@ window.onload = function() {
             'rarity_legendary_unique_duo.png',
             'rarity_legendary_unique_trio.png',
             'rarity_legendary_unique_quad.png',
+            'extras_neutral.png',
+            'extras_neutral_duo.png',
+            'extras_neutral_trio.png',
+            'extras_neutral_quad.png',
             'power_health_bg.png'
         ];
         let loadedImagesCount = 0;
@@ -405,7 +443,7 @@ window.onload = function() {
                 continue;
             }
 
-            if (part.IsGreen) ctx.fillstyle = '#00FF00' + ctx.fillstyle; //testing!!!
+            if (part.IsGreen) ctx.fillstyle = '#00FF00' + ctx.fillstyle; //testing!!! didn't work but doesn't break anything
             else ctx.fillStyle = '#D3C6A9';
             ctx.font = fontSize + 'px Rubik';
             ctx.textAlign="left";
