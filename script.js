@@ -157,13 +157,13 @@ window.onload = function() {
         if (currentCard.rarity.indexOf('legendary') >= 0) {
             if (currentCard.frame.indexOf('duo_') >= 0) {
                 currentCard.rarity += '_duo';
-                //if (currentCard.extras.indexOf('extra_') >= 0)
-                    //currentCard.rarity += '_trio';
+                if (currentCard.extras.indexOf('extra_') >= 0)
+                    currentCard.rarity += '_trio';
             }
             if (currentCard.frame.indexOf('trio_') >= 0) {
                 currentCard.rarity += '_trio';
-                //if (currentCard.extras.indexOf('extra_') >= 0)
-                    //currentCard.rarity += '_quad';
+                if (currentCard.extras.indexOf('extra_') >= 0)
+                    currentCard.rarity += '_quad';
             }
             else if (currentCard.frame.indexOf('quad_') >= 0)
                 currentCard.rarity += '_quad';
