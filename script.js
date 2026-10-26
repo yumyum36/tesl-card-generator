@@ -260,14 +260,8 @@ window.onload = function() {
                 src = 'frame_' + currentCard.frame + '.png';
                 break;
             case 'extras':
-                if (currentCard.extras == ('neutral')){
-                    src = 'extra_' + currentCard.extras + '.png';
-                    break;
-                }
-                else {
-                    src = 'none_' + currentCard.extras + '.png';
-                    break;
-                }
+                src = currentCard.extras + '.png';
+                break;
             case 'rarity':
                 src = 'rarity_' + currentCard.rarity + '.png';
                 break;
