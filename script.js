@@ -2,7 +2,7 @@
 window.onload = function() {
     let canvas = document.getElementById('MainCanvas');
     let selectCardClass = document.getElementById('CardClass');
-    let selectExtras = document.getElementById('CardExtras');
+    //let selectExtras = document.getElementById('CardExtras');
     let selectCardRarity = document.getElementById('CardRarity');
     let inpCardTitle = document.getElementById('CardTitle');
     let inpCardType = document.getElementById('CardType');
@@ -26,7 +26,7 @@ window.onload = function() {
         health: '4',
         magicka: '5',
         power: '3',
-        extras: 'none',
+        //extras: 'none',
         rarity: 'epic',
         type: 'Player',
         text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w) (p) (l) (d)',
@@ -56,11 +56,11 @@ window.onload = function() {
         drawCardImage();
     };
     
-    selectCardExtras.onchange = function () { //hopefully works
+    /*selectCardExtras.onchange = function () { //hopefully works
         currentCard.extras = this.value;
         checkRarityForDuoTrio();
         drawCardImage();
-    };
+    };*/
 
     inpCardTitle.onkeyup = function () {
         currentCard.title = this.value;
@@ -141,7 +141,7 @@ window.onload = function() {
     function loadValues(card) {
         selectCardClass.value = card.frame;
         selectCardRarity.value = card.rarity;
-        selectExtras.value = card.extras;
+        //selectExtras.value = card.extras;
         inpCardTitle.value = card.title;
         inpCardType.value = card.type;
         inpCardMagicka.value = card.magicka;
@@ -153,28 +153,28 @@ window.onload = function() {
 
     function checkRarityForDuoTrio() {
         currentCard.rarity = selectCardRarity.value;
-        currentCard.extras = selectCardExtras.value;
+        //currentCard.extras = selectCardExtras.value;
         if (currentCard.rarity.indexOf('legendary') >= 0) {
             if (currentCard.frame.indexOf('duo_') >= 0) {
                 currentCard.rarity += '_duo';
-                if (currentCard.extras.indexOf('extra_') >= 0)
-                    currentCard.rarity += '_trio';
+                /*if (currentCard.extras.indexOf('extra_') >= 0)
+                    currentCard.rarity += '_trio';*/
             }
             if (currentCard.frame.indexOf('trio_') >= 0) {
                 currentCard.rarity += '_trio';
-                if (currentCard.extras.indexOf('extra_') >= 0)
-                    currentCard.rarity += '_quad';
+                /*if (currentCard.extras.indexOf('extra_') >= 0)
+                    currentCard.rarity += '_quad';*/
             }
             else if (currentCard.frame.indexOf('quad_') >= 0)
                 currentCard.rarity += '_quad';
         }
-        if currentCard.extras.indexOf('extra_') >= 0) { //might have to be its own function, will see if it breaks anything being here
+        /*if currentCard.extras.indexOf('extra_') >= 0) { //might have to be its own function, will see if it breaks anything being here
             if (currentCard.frame.indexOf('duo_') >= 0)
                 currentCard.extras += '_duo';
             if (currentCard.frame.indexOf('trio_') >=0)
                 currentCard.extras += '_trio';
             else if (currentCard.frame.indexOf('quad_') >= 0)
-                currentCard.extras += '_quad';
+                currentCard.extras += '_quad';*/
     }
 
     function drawCardImage() {
@@ -259,9 +259,9 @@ window.onload = function() {
             case 'frame':
                 src = 'frame_' + currentCard.frame + '.png';
                 break;
-            case 'extras':
+            /*case 'extras':
                 src = currentCard.extras + '.png';
-                break;
+                break;*/
             case 'rarity':
                 src = 'rarity_' + currentCard.rarity + '.png';
                 break;
@@ -347,10 +347,10 @@ window.onload = function() {
             'rarity_legendary_unique_duo.png',
             'rarity_legendary_unique_trio.png',
             'rarity_legendary_unique_quad.png',
-            'extra_neutral.png',
-            'extra_neutral_duo.png',
-            'extra_neutral_trio.png',
-            'extra_neutral_quad.png',
+            //'extra_neutral.png',
+            //'extra_neutral_duo.png',
+            //'extra_neutral_trio.png',
+            //'extra_neutral_quad.png',
             'power_health_bg.png'
         ];
         let loadedImagesCount = 0;
