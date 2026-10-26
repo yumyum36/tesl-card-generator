@@ -347,10 +347,10 @@ window.onload = function() {
             'rarity_legendary_unique_duo.png',
             'rarity_legendary_unique_trio.png',
             'rarity_legendary_unique_quad.png',
-            'extras_neutral.png',
-            'extras_neutral_duo.png',
-            'extras_neutral_trio.png',
-            'extras_neutral_quad.png',
+            //'extras_neutral.png',
+            //'extras_neutral_duo.png',
+            //'extras_neutral_trio.png',
+            //'extras_neutral_quad.png',
             'power_health_bg.png'
         ];
         let loadedImagesCount = 0;
