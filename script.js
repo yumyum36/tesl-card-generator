@@ -339,6 +339,8 @@ window.onload = function() {
             'frame_duo_trickster.png',
             'frame_duo_oracle.png',
             'frame_duo_bulwark.png',
+            'frame_duo_barbarian.png',
+            'frame_duo_swashbuckler.png',
             'rarity_legendary.png',
             'rarity_legendary_duo.png',
             'rarity_legendary_trio.png',
