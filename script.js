@@ -26,7 +26,7 @@ window.onload = function() {
         health: '4',
         magicka: '5',
         power: '3',
-        extras: 'none_none',
+        extras: 'none',
         rarity: 'epic',
         type: 'Player',
         text: '[Summon]: \ndiscord.gg/teslegends\n #custom-cards channel\n(a) (e) (i) (n) (s) (w) (p) (l) (d)',
